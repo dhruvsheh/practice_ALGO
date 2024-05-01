@@ -7,7 +7,7 @@ int place(int r)
     int j;
     for(j=1;j<r;j++)
     {
-        if(a[j]==a[r]|| abs(a[j]-a[r])== abs(j-r))
+        if(a[j]==a[r]|| abs(a[j]-a[r])== abs(j-r))  //no same columns or in diagonal to each other
         return 0;
     }       
     
@@ -22,7 +22,8 @@ void print_sol(int n)
     {
         for(j=1;j<=n;j++)
         {
-            if(a[i]==j)
+            if(a[i]==j) //If a[i] equals j,
+                        //it means there is a queen placed in row i at column j.
             {
                 printf("Q\t");
             }
@@ -35,13 +36,14 @@ void print_sol(int n)
 void queen(int n)
 {
     int k=1;
-    a[k]=0;
+    a[k]=0;  //This indicates that initially, no queen has been placed in the first row.
     while(k!=0)
     {
         do{
             a[k]++;
-        }while(a[k]<=n && !place(k));
-
+        }while(a[k]<=n && !place(k));  //either a[k] exceeds the size of the chessboard n 
+                                       //or until the place function returns false
+                                       //(indicating that placing a queen at position a[k] in row k is not valid)
         if(a[k]<=n)
         {
             if(k==n)
@@ -61,7 +63,7 @@ void queen(int n)
 void main()
 {
     int n;
-    printf("Enter no of queens");
+    printf("Enter no of queens:");
     scanf("%d",&n);
     queen(n);
     printf("Total Solutions: %d",count);
