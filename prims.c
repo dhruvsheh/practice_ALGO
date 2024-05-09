@@ -27,7 +27,7 @@ int find_min(){
     v[temp]=1;
     return temp;
 }
-void relax(int u,int v){
+void relax(int u,int v){  //imp difference
     if(dist[v]>g[u][v]){
         dist[v]=g[u][v];
         par[v]=u;

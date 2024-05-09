@@ -37,8 +37,8 @@ void djikstra(){
     initialise_single_source();
     for(i=0;i<n;i++){
         int u=find_minimum();
-        for(j=0;j<n;j++){
-            if(graph[u][j]!=0&&V[j]==0){
+        for(j=0;j<n;j++){ //VIMP PART,GRAPH[U][J] WHERE U IS FIND_MIN() KA ANSWER 
+            if(graph[u][j]!=0&&V[j]==0){  //if weight is not 0 and vertex not visited
                 relax(u,j);
             }
         }
